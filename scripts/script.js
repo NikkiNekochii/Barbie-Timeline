@@ -91,6 +91,8 @@ function box6(){
     changeContent()
 }
 
+
+
 function changeContent(){
     switch(barbieBox){
         case 1:
@@ -143,7 +145,7 @@ function changeContent(){
         case 4:
             sectionContent.classList.remove('section3')
             sectionContent.classList.add('section4')
-            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(2)') //false item aanpassen
+            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(5)') //false item aanpassen
             falseItem.addEventListener('click', box5) // nieuwe eventlistener toe voegen
             console.log('case 4: we are at four')
             barbieFront.src = './images/hairbarbie.png'
@@ -151,15 +153,17 @@ function changeContent(){
             item2.src = './images/hairstripes.png'
             item3.src = './images/beads.png'
             item4.src = './images/prosthetic.png'
-            barbieBackground.src = './images/nine.jpg'
+            barbieBackground.src = './images/colors.jpg'
             barbieLogo.src = './images/logo90wit.png'
             h2.innerHTML = 'Crazy 90s'
-            pInfo.innerHTML = 'In de loop der jaren waren er verschillende soorten poppen verkrijgbaar waaronder een paar met een andere nationaliteit, maar ze waren altijd vrienden van Barbie. <br> 1980 een officiële Afro-Amerikaanse Barbie kwam uit, naast een Latina Barbie. In datzelfde jaar werden meer dan 40 verschillende internationale Barbies tot nu toe uitgebracht. <br> 1985 Oscar de la Renta  creëerde een lijn merkkleding voor Barbie. Dit was het begin van vele toekomstige modesamenwerkingen.'
+            pInfo.innerHTML = 'Barbie werd pas echt populair in de jaren 90. Gedurende deze jaren bracht Mattel een heleboel unieke, modieuze en nieuwe Barbie poppen uit. <br> 1992 de totally hair Barbie kwam uit en tevens de best verkochte pop aller tijden. De pop staat bekend om haar extra lange haar dat tot aan haar tenen reikte.Variaties hierop waren Barbie met: haarkralen, glitterhaar en blauw haar. <br> Verder kreeg Barbie steeds meer beroepen erbij en veranderde haar lichaam. Zo kreeg ze plattere voeten, kleinere borsten en een bredere taille.'
             pJaartal.innerHTML = '1990'
         break;
         case 5:
             sectionContent.classList.remove('section4')
             sectionContent.classList.add('section5')
+            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(5)') //false item aanpassen
+            falseItem.addEventListener('click', box6) // nieuwe eventlistener toe voegen
             console.log('case 5: we are almost there')
             barbieFront.src = './images/baldbarbie.png'
             item1.src = './images/lgbtdress.png'
@@ -167,6 +171,10 @@ function changeContent(){
             item3.src = './images/wig.png'
             item4.src = './images/wheelchair.png'
             barbieBackground.src = './images/rainbow.png'
+            barbieLogo.src = './images/logo90wit.png'
+            h2.innerHTML = 'levens echt'
+            pInfo.innerHTML = 'Barbie werd pas echt populair in de jaren 90. Gedurende deze jaren bracht Mattel een heleboel unieke, modieuze en nieuwe Barbie poppen uit. <br> 1992 de totally hair Barbie kwam uit en tevens de best verkochte pop aller tijden. De pop staat bekend om haar extra lange haar dat tot aan haar tenen reikte.Variaties hierop waren Barbie met: haarkralen, glitterhaar en blauw haar. <br> Verder kreeg Barbie steeds meer beroepen erbij en veranderde haar lichaam. Zo kreeg ze plattere voeten, kleinere borsten en een bredere taille.'
+            pJaartal.innerHTML = '2010'
         break;
         case 6:
             sectionContent.classList.remove('section5')

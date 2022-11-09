@@ -80,10 +80,6 @@ Wat maakt Barbie uniek:  het is echt speelgoed dat ontworpen is voor meisjes doo
 
   Ik wilde zeker weten dat ik een Barbie straks heb die daadwerkelijk mij representateert. Dus heb ik een Google form uit gestuurd naar mijn vrienden en familie leden.
 
-  
-
-
-
 
 
   ### Bevinding 1:
@@ -143,25 +139,39 @@ Wat maakt Barbie uniek:  het is echt speelgoed dat ontworpen is voor meisjes doo
 
 <details>
   <summary>Mijn bevindingen + wijzigingen (minimaal 5)</summary>
-  
-  ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+
+
+<img src="readme-images/ssfout1.JPG" width="375px" alt="github fout">
+
+### Bevinding 1:
+ Responsiveness: via github is de background niet responsive ook laad hij niet altijd de doos achtergong inclusief barbies.
+ Het is dan ook niet duidelijk wat je moet doen om naar de volgende doos te gaan aangezien de tekst hierdoor wegvalt.
 
   #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+Background: height moet uit gezet worden op de body.
 
-
+ <img src="readme-images/ssfout2.JPG" width="375px" alt="uitleg actie">
 
   ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  niet erg duidelijk wat ik moet doen om naar de volgende periode in de tijdlijn te komen doordat de uitleg tekst onderaan staat, bij een ander grootte scherm kan je dit niet lezen tenzij je helemaal naar beneden scrollt.
 
   #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
+ 
 
 
   ### Bevinding 3:
-  ...
+  code volgorde van CSS is niet altijd logisch. zet bijv. width eerst en position, left, bottom enzovoorts bij elkaar. wees consistent.
+
+  
+  #### oplossing:
+
+ ### Bevinding 4:
+  Je kan wel vooruit door je tijdlijn maar niet terug switchen naar voorgaande items. 
+  
+  #### oplossing:
+  misschien scroll buttons aanmaken.
+
+
 
 </details>
 
