@@ -1,14 +1,32 @@
 /*************/
 /* CSS RESET */
 /*************/
+@font-face {
+  font-family: 'barbie';
+  src: url(../fonts/rockoflf-bold-webfont.woff);
+}
+
+
+
+
+
 
 /* naar een idee van Jen Simmons */
 *, *::after, *::before {
   box-sizing:border-box;  
 }
 
+
+/* gradient uit gerekend met https://cssgradient.io/ */
 body {
   margin:0;
+  background-image: url("../images/bgpurple.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: radial-gradient(circle, rgba(255,90,185,1) 0%, rgba(205,66,239,1) 33%, rgba(249,109,211,1) 59%, rgba(216,70,238,1) 99%); */
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr;
 }
 
 button:not([disabled]) {
@@ -24,7 +42,9 @@ button:not([disabled]) {
 /*********************/
 
 :root {
-  --color-headings:crimson
+  --kleur-merk: #f3009a;
+  --kleur-tekst: white;
+  --kleur-titel: rgb(115, 10, 163);
 }
 
 
@@ -36,10 +56,320 @@ button:not([disabled]) {
 /********************/
 
 h1 {
-  color:var(--color-headings);
+  font-family: 'barbie';
+  color: var(--kleur-merk);
+  font-style: italic;
+  letter-spacing: 3px;
+}
+
+h2 {
+  font-family: 'barbie';
+  color: var(--kleur-titel);
+}
+
+p {
+  font-family: 'barbie'; 
+  color: var(--kleur-tekst);
 }
 
 
-/* ... */
+/********/
+/* header */
+/********/
+
+header {
+  display: flex;
+  column-gap: 1em;
+  justify-content: center;
+  padding-top: 2em;
+  filter: drop-shadow(16px 16px 20px rgb(0, 0, 0));
+}
+
+header img{
+  width: min(50%, 10em); /* dankje stela */
+  height: 5em;
+}
 
 
+
+
+/********/
+/* main */
+/********/
+
+main{
+  display: grid;
+  place-content: center; /* alles midden en even groot als grootste content */
+  place-items: center; /* alle items erbinnen ook nog in het midden */
+  gap: 1em;
+}
+
+article {
+  width: 60em;
+  position: relative;
+}
+
+article section {
+  width: 100%;
+  height: 100%;
+}
+
+/************/
+/* voorkant */
+/************/
+
+article section:nth-of-type(1){
+  position: relative;
+  z-index: 200;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+  pointer-events: none; /* Zodat we door de afbeelding heen kunnen klikken (negeer z-index) */
+}
+
+
+article section:nth-of-type(1) img:nth-of-type(1) {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+article section:nth-of-type(1) img:nth-of-type(2) {
+  position: absolute;
+  width: 12em;
+  left: 3.5em;
+  bottom: 5.5em;
+  display: block;
+}
+
+article section:nth-of-type(1) h2 {
+  position: absolute;
+  width: 19rem;
+  bottom: 0.7em;
+  left: 0em;
+  text-align: center;
+  /* background-color: blueviolet; */
+  border-radius: 0em 2em 2em 0em;
+  /* color: white; */
+  font-size: 2em;
+  margin: 0;
+}
+
+article section:nth-of-type(1) p:nth-of-type(1) {
+  position: absolute;
+  width: 48em;
+  height: 9.5em;
+  bottom: 0em;
+  right: 4%;
+  /* color: white; */
+  font-size: .75em;
+  /* background-color: blueviolet; */
+  margin: 0;
+  display: grid;
+  align-items: center;
+}
+
+article section:nth-of-type(1) p:nth-of-type(2) {
+  position: absolute;
+  width: 11rem;
+  right: .3em;
+  top: 6rem;
+  text-align: center;
+  /* color: white; */
+  font-size: 3em;
+  margin: 0;
+}
+
+
+
+
+
+/************/
+/* inhoud */
+/************/
+
+/* doos 1 */
+
+article section:nth-of-type(2) {
+  z-index: 100;  /* standaard is z-index 0 */
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  overflow: hidden;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2) img:hover {
+  cursor: pointer;
+}
+
+article section:nth-of-type(2) img:nth-of-type(1) {
+  position: relative;
+  align-self: center;
+  scale: 0.35;
+  bottom: 25em;
+  /* overflow: hidden; */
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2) img:nth-of-type(2) {
+  position: absolute;
+  scale: 0.12;
+  left: -30em;
+  bottom: -13em;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2) img:nth-of-type(3) {
+  position: absolute;
+  scale: 0.4;
+  left: 4em;
+  top: 2em;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2) img:nth-of-type(4) {
+  position: absolute;
+  right: 12em;
+  top: 11em;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2) img:nth-of-type(5) {
+  position: absolute;
+  scale: 0.6;
+  right: 6em;
+  bottom: 10em;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+/* doos 2 */
+
+article section:nth-of-type(2).section2 img:first-of-type {
+  bottom: 5em;
+  left: 14em;
+  scale: 0.6;
+  filter: drop-shadow(.5em 1em 1em rgba(174, 93, 246, 0.75));
+}
+
+article section:nth-of-type(2).section2 img:nth-of-type(2) {
+  top: -19em;
+  left: -34em;
+  scale: 0.2;
+  filter: drop-shadow(.5em 1em 1em rgba(174, 93, 246, 0.75));
+}
+
+article section:nth-of-type(2).section2 img:nth-of-type(3) {
+  top: -5em;
+  left: -4em;
+  scale: 0.3;
+  filter: drop-shadow(.5em 1em 1em rgb(174, 93, 246, 0.75));
+}
+
+article section:nth-of-type(2).section2 img:nth-of-type(4) {
+  top: 4em;
+  right: 12em;
+  scale: 0.4;
+  filter: drop-shadow(.5em 1em 1em rgb(174, 93, 246, 0.75));
+}
+
+article section:nth-of-type(2).section2 img:nth-of-type(5) {
+  bottom: 3em;
+  right: 3em;
+  scale: 0.6;
+  filter: drop-shadow(.5em 1em 1em rgb(174, 93, 246, 0.75));
+}
+
+/* doos 3 */
+
+article section:nth-of-type(2).section3 img:first-of-type {
+  bottom: 5em;
+  left: 15em;
+  scale: 0.6;
+  filter: drop-shadow(.5em 1em 1em rgba(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section3 img:nth-of-type(2) {
+  bottom: 4.5em;
+  left: 11em;
+  transform: rotate(323deg);
+  scale: 0.5;
+  filter: drop-shadow(0.5em 1em 1em rgba(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section3 img:nth-of-type(3) {
+  top: 15em;
+  left: 28em;
+  scale: 0.55;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section3 img:nth-of-type(4) {
+  top: -2em;
+  right: 5em;
+  scale: 0.35;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section3 img:nth-of-type(5) {
+  bottom: 15em;
+  left: 3em;
+  scale: 0.75;
+  filter: drop-shadow(.5em 1em 1em rgb(0 0 0 / 0.75));
+}
+
+/* doos 4 */
+
+article section:nth-of-type(2).section4 img:first-of-type {
+  bottom: 22em;
+  left: 12em;
+  scale: 0.4;
+  filter: drop-shadow(.5em 1em 1em rgba(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section4 img:nth-of-type(2) {
+  bottom: -10em;
+  left: 5em;
+  transform: rotate(8deg);
+  scale: 0.45;
+  filter: drop-shadow(0.5em 1em 1em rgba(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section4 img:nth-of-type(3) {
+  bottom: -10em;
+  left: 5em;
+  transform: rotate(8deg);
+  scale: 0.45;
+  filter: drop-shadow(0.5em 1em 1em rgba(0 0 0 / 0.75));
+}
+
+article section:nth-of-type(2).section4 img:nth-of-type(4) {
+  bottom: -10em;
+  left: 5em;
+  transform: rotate(8deg);
+  scale: 0.45;
+  filter: drop-shadow(0.5em 1em 1em rgba(0 0 0 / 0.75));
+}
+
+
+
+
+
+/************/
+/* achtergrond */
+/************/
+
+article section:nth-of-type(3) {
+  position: absolute;
+  top: 4em;
+  left: 0em;
+}
+
+article section:nth-of-type(3) img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  display: block;
+}
+
+article section:nth-of-type(1) p.active {
+  display: grid;
+}
