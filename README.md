@@ -38,9 +38,7 @@ Mijn startniveau is: Blauw.
 
 zie hier mijn proces in Miro: https://miro.com/welcomeonboard/a1NyQ2VNdkxTVWFrS1k0eWVnUTQ2RUhjb0FBQXY5V2RieW82OExlVk5VMjI4M3duam9ZZERUUG52Z1p5Qk00bHwzMDc0NDU3MzUwNDYyODk0NTc5fDI=?share_link_id=112984760417
 
-en hier mijn githublink: 
-
-
+en hier mijn githublink: https://nikkinekochii.github.io/Barbie-Timeline/
 
 <details open>
   <summary>De eerste versie/schets van je ontwerp & je persoonlijke uitdaging</summary>
