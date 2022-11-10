@@ -5,6 +5,7 @@ console.log("Howdy!");
 
 // Stap 1: Variabel definieren
 var sectionContent = document.querySelector('article section:nth-of-type(2)')
+
 var barbieFront = document.querySelector('article section:nth-of-type(2) img:nth-of-type(1)')
 var item1 = document.querySelector('article section:nth-of-type(2) img:nth-of-type(3)')
 var item2 = document.querySelector('article section:nth-of-type(2) img:nth-of-type(4)')
@@ -16,11 +17,17 @@ var h2 = document.querySelector('article section:nth-of-type(1) h2')
 var pInfo = document.querySelector('article section:nth-of-type(1) p:nth-of-type(1)') // keer 5
 var pJaartal = document.querySelector('article section:nth-of-type(1) p:nth-of-type(2)')
 
+var vorigeBox = document.querySelector('button:first-of-type') // omdat ik maar 2 buttons heb
+var volgendeBox = document.querySelector('button:last-of-type')
+
 // Stap 2: EventListener toevoegen (Zodat het luisterd naar een click / hover)
 barbieFront.addEventListener('mouseenter', barbieHoverChange)
 barbieFront.addEventListener('mouseleave', barbieHoverChangeBack)
 
-var barbieBox = 1; // hiermee kan je bijhouden naar welke box je kijkt :D door hier te plaatsen kan ik hem in andere functies veranderen
+vorigeBox.addEventListener('click', goBack) // click want hij moet vooruit of terug gaan na klikken
+volgendeBox.addEventListener('click', goForward)
+
+var barbieBox = 1; // hiermee kan je bijhouden naar welke box je kijkt :D door deze hier te plaatsen kan ik hem in andere functies veranderen
 
 // Stap 3: Functie aanmaken
 function barbieHoverChange(){ // je gaat met je muis op de barbie staan
@@ -31,6 +38,8 @@ function barbieHoverChange(){ // je gaat met je muis op de barbie staan
         barbieFront.src = './images/astrobarbietwee.png'// zo kan je het elke keer aanpassen
     }else if(barbieBox == 3){
         barbieFront.src = './images/spanish.png'// zo kan je het elke keer aanpassen
+    }else if(barbieBox == 5){
+        barbieFront.src = './images/vitiligo.png'// zo kan je het elke keer aanpassen
     }
     // else if(event.type == 'mouseleave'){
     //     barbieFront.classList.toggle('change1')
@@ -43,6 +52,8 @@ function barbieHoverChangeBack(){ // je gaat met je muis van de barbie af
         barbieFront.src = './images/astrobarbie.png'
     }else if(barbieBox == 3){
         barbieFront.src = './images/african.png'
+    }else if(barbieBox == 5){
+        barbieFront.src = './images/baldbarbie.png'// zo kan je het elke keer aanpassen
     }
 }
 
@@ -87,7 +98,21 @@ function box5(){
 
 function box6(){
     console.log("ik ben box 6")
-    barbieBox = 5;
+    barbieBox = 6;
+    changeContent()
+}
+
+
+// functies knoppen vooruit en terug
+function goBack(){
+    console.log("ga terug")
+    barbieBox = barbieBox - 1; // stappen van 1 terug
+    changeContent() 
+}
+
+function goForward(){
+    console.log("ga vooruit")
+    barbieBox = barbieBox + 1; // stappen van 1 vooruit
     changeContent()
 }
 
@@ -96,8 +121,10 @@ function box6(){
 function changeContent(){
     switch(barbieBox){
         case 1:
+            sectionContent.className = '' // classe leeg maken
             sectionContent.classList.add('section1')
-            falseItem.addEventListener('click', box2)
+            falseItem = document.querySelector('article section.section1 img:nth-of-type(3)')
+            falseItem.addEventListener('click', box2, {once:true}) // once:true want anders blijft hij aan voor elke box!
             console.log('case 1: heeey :D')
             barbieFront.src = '../images/kenbruin.png'
             item1.src = './images/astrohelm.png'
@@ -106,13 +133,14 @@ function changeContent(){
             item4.src = './images/sunnys.png'
             barbieBackground.src = '../images/beach.jpg'
             barbieLogo.src = './images/1960wit.png'
+            vorigeBox.disabled = true; // knop uit zetten want er is geen andere box terug
             // voor andere methode eerste p krijgt display:grid; door middel van een klasse toe te voegen aan die eerste p deze zet je uit en de nieuwe aan.
         break;
         case 2:
-            sectionContent.classList.remove('section1')
+            sectionContent.className = '' // classe leeg maken
             sectionContent.classList.add('section2')
-            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(4)') //false item aanpassen
-            falseItem.addEventListener('click', box3) // nieuwe eventlistener toe voegen
+            falseItem = document.querySelector('.section2 img:nth-of-type(4)') //false item aanpassen
+            falseItem.addEventListener('click', box3, {once:true}) // nieuwe eventlistener toe voegen
             console.log('case 2: yess it works :D now its easy')
             barbieFront.src = '../images/astrobarbie.png'
             item1.src = './images/skates.png'
@@ -124,12 +152,13 @@ function changeContent(){
             h2.innerHTML = 'Beroepen'
             pInfo.innerHTML = 'De 70s staan in het teken van Barbie haar carrière. Sinds haar debut heeft Barbie meer dan 200 banen gehad. De oprichter wilde hiermee meisjes inspireren om hun droombaan na te streven. <br> 1973 Barbie, werd chirurg en stewardess en kwam vaak met accessoires die bij haar baan pasten. Ze werd ook astronaut, actrice, computer engineer, designer en kunstschaatser. <br> Verder kreeg barbie een makeover: ze was zon gebruind, kreeg andere haarstijlen, lachte met haar mond open en keek je recht aan.'
             pJaartal.innerHTML = '1970'
-        break;
+            vorigeBox.disabled = false; // knop weer aan zetten anders kan je niet meer terug naar de eerste
+            break;
         case 3:
-            sectionContent.classList.remove('section2')
+            sectionContent.className = '' // classe leeg maken
             sectionContent.classList.add('section3')
-            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(2)') //false item aanpassen
-            falseItem.addEventListener('click', box4) // nieuwe eventlistener toe voegen
+            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(2)')
+            falseItem.addEventListener('click', box4, {once:true}) // nieuwe eventlistener toe voegen plus once true voor 1 malig
             console.log('case 3: yess we are halfway there')
             barbieFront.src = './images/african.png'
             item1.src = './images/polynesian.png'
@@ -143,10 +172,11 @@ function changeContent(){
             pJaartal.innerHTML = '1980'
         break;
         case 4:
-            sectionContent.classList.remove('section3')
+            sectionContent.className = '' // classe leeg maken
             sectionContent.classList.add('section4')
-            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(5)') //false item aanpassen
-            falseItem.addEventListener('click', box5) // nieuwe eventlistener toe voegen
+            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(5)')
+            falseItem.addEventListener('click', box5, {once:true}) // nieuwe eventlistener toe voegen
+            falseItem.className = ''
             console.log('case 4: we are at four')
             barbieFront.src = './images/hairbarbie.png'
             item1.src = './images/klem.png'
@@ -160,32 +190,38 @@ function changeContent(){
             pJaartal.innerHTML = '1990'
         break;
         case 5:
-            sectionContent.classList.remove('section4')
+            sectionContent.className = '' // classe leeg maken
             sectionContent.classList.add('section5')
-            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(5)') //false item aanpassen
-            falseItem.addEventListener('click', box6) // nieuwe eventlistener toe voegen
+            falseItem = document.querySelector('article section:nth-of-type(2) img:nth-of-type(4)')
+            falseItem.addEventListener('click', box6, {once:true}) // nieuwe eventlistener toe voegen
             console.log('case 5: we are almost there')
             barbieFront.src = './images/baldbarbie.png'
             item1.src = './images/lgbtdress.png'
-            item2.src = './images/nogniks.png'
+            item2.src = './images/flamongol.png'
             item3.src = './images/wig.png'
             item4.src = './images/wheelchair.png'
-            barbieBackground.src = './images/rainbow.png'
-            barbieLogo.src = './images/logo90wit.png'
-            h2.innerHTML = 'levens echt'
-            pInfo.innerHTML = 'Barbie werd pas echt populair in de jaren 90. Gedurende deze jaren bracht Mattel een heleboel unieke, modieuze en nieuwe Barbie poppen uit. <br> 1992 de totally hair Barbie kwam uit en tevens de best verkochte pop aller tijden. De pop staat bekend om haar extra lange haar dat tot aan haar tenen reikte.Variaties hierop waren Barbie met: haarkralen, glitterhaar en blauw haar. <br> Verder kreeg Barbie steeds meer beroepen erbij en veranderde haar lichaam. Zo kreeg ze plattere voeten, kleinere borsten en een bredere taille.'
+            barbieBackground.src = './images/rainbow.jpg'
+            barbieLogo.src = './images/zerologowit.png'
+            h2.innerHTML = 'Levens echt'
+            pInfo.innerHTML = 'In 2010 draaide Barbie meer om inclusie. Zo werd Barbie veel echter met een navel en lichtere make-up. De poppen hebben inmiddels 8 verschillende lichaamstypes, 35 huidskleuren en 94 kapsels. <br> 2014 Barbie werd een social media influencer met de lancering van het @barbiestyle Instagram-account. En lanceerde in 2015 een vlog op YouTube. <br> Voor nog meer inclusie bestaan er nu zelfs poppen met vitiligo, een rolstoel, een prothetische ledemaat, een kale pop, een ken pop met lang haar en gender neutrale poppen.'
             pJaartal.innerHTML = '2010'
+            volgendeBox.disabled = false; // knop weer aan zetten want hij kan nog vooruit
         break;
         case 6:
-            sectionContent.classList.remove('section5')
+            sectionContent.className = '' // classe leeg maken
             sectionContent.classList.add('section6')
-            console.log('case 6: The end!')  //klopt nog niet moet nog alle items en barbie voor hebben!
-            barbieFront.src = './images/hairbarbie.png'
-            item1.src = './images/klem.png'
-            item2.src = './images/hairstripes.png'
-            item3.src = './images/beads.png'
-            item4.src = './images/prosthetic.png)'
-            barbieBackground.src = './images/nine.png'
+            console.log('case 6: The end!') 
+            barbieFront.src = './images/me1.png'
+            item1.src = './images/rave.png'
+            item2.src = './images/school.png'
+            item3.src = './images/hobby.png'
+            item4.src = './images/food.png'
+            barbieBackground.src = './images/nikkiroom.jpg'
+            barbieLogo.src = './images/nlogo.png'
+            h2.innerHTML = 'Limited edition'
+            pInfo.innerHTML = 'Dit is een limited edition box met daarin een Barbie die eruit ziet zoals ik. In deze set vind je mij in mijn kamer met mijn typische outfit aan. Het bevat een school, hobby eten en rave set. <br> Mijn favoriete eten is sushi en pittig eten en ik drink en maak graag cocktails. Ik ben serieus bezig met mijn studie en daarnaast zet ik mezelf in voor mijn studievereniging in de activiteiten commissie. Ik ben een sociaal type die vaak te vinden is bij mijn vrienden of vriend en ander op een festival of in de stad.'
+            pJaartal.innerHTML = '2022'
+            volgendeBox.disabled = true; // knop uit zetten want dit is de laatste box
         break;
     }
 }
